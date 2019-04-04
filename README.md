@@ -1,4 +1,4 @@
-# cw-checkpoint
+# cw-lenny
 CrackWatch Checkpoint Automation
 
 
