@@ -16,9 +16,7 @@ async def on_ready():
     print(datetime.now())
     print('------')
 
-@bot.command()
-async def test(ctx, arg):
-    await ctx.send(arg)
+
 @bot.command()
 async def embedtest(ctx):
     embed=discord.Embed(title="Verification", description="User Approval", color=0x00ff40)
