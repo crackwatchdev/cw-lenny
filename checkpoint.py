@@ -39,6 +39,8 @@ async def verify(ctx):
         to_send = 'Passed verification.'
         await ctx.message.guild.system_channel.send(to_send)
         await ctx.message.author.add_roles(ApprovedRole)
+        if DeniedRole in ctx.message.author.roles:
+            await ctx.message.author.remove_roles(DeniedRole)
     else:
         to_send = 'Did not pass. Contact staff member.'
         await ctx.message.guild.system_channel.send(to_send)
@@ -49,6 +51,8 @@ async def approve(ctx, member : discord.Member, reason):
     ApprovedRole = discord.utils.get(ctx.message.guild.roles, name=conf.get('bot', 'ApprovedRole'))
     age = member.created_at
     await member.add_roles(ApprovedRole)
+    if DeniedRole in ctx.message.author.roles:
+        await ctx.message.author.remove_roles(DeniedRole)
     embed=discord.Embed(title="Verification", description="User Approval", color=0x00ff00)
     embed.set_author(name="Checkpoint Bot", url="https://github.com/crackwatchdev/cw-checkpoint")
     embed.set_thumbnail(url="https://images.vexels.com/media/users/3/130496/isolated/preview/e18487bd9492fb9ef6fd32b3bddb3abe-gavel-court-hammer-icon-by-vexels.png")
