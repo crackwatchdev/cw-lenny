@@ -22,7 +22,7 @@ async def on_ready():
     global DeniedRole
     global ModRole
     await bot.wait_until_ready()
-    guild = bot.get_guild(252124516476518400)
+    guild = bot.get_guild(int(conf.get('bot', 'Guild')))
     ApprovedRole = guild.get_role(int(conf.get('bot', 'ApprovedRole')))
     DeniedRole = guild.get_role(int(conf.get('bot', 'DeniedRole')))
     ModRole = guild.get_role(int(conf.get('bot', 'ModRole')))
